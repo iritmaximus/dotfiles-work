@@ -118,10 +118,10 @@ umask 022
 . "$HOME/.cargo/env"
 
 # Default good paths
-export PATH="$PATH:/sbin:/home/martti/.local/bin:/home/martti/.local/bin/statusbar:/usr/local/bin:/usr/local/crossdev/bin:/home/martti/.config/emacs/bin"
+export PATH="$PATH:/sbin:~/.local/bin:~/.local/bin/statusbar:/usr/local/bin:/usr/local/crossdev/bin:~/.config/emacs/bin"
 
-export PATH="$PATH:/home/martti/.cargo/bin" # rustup
-export PATH="/home/$USER/.local/bin:$PATH" # .local/bin
-export PATH="$PATH:/home/koivaaro/.local/share/coursier/bin" # scala lsp
-export PATH="$PATH:/home/koivaaro/.config/emacs/bin" # Doom emacs
-export PATH="/home/koivaaro/.opencode/bin:$PATH" # opencode
+export PATH="$PATH:~/.cargo/bin" # rustup
+export PATH="~/.local/bin:$PATH" # .local/bin
+export PATH="$PATH:~/.local/share/coursier/bin" # scala lsp
+export PATH="$PATH:~/.config/emacs/bin" # Doom emacs
+export PATH="~/.opencode/bin:$PATH" # opencode
