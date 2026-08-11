@@ -1,0 +1,52 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[iface]
+command=$I3BLOCKS_SCRIPT_DIR/iface
+# label=wlp0s20f3:
+# IFACE=wlp0s20f3
+interval=10
+
+[bandwidth]
+command=$I3BLOCKS_SCRIPT_DIR/bandwidth2
+interval=60
+markup=pango
+label=
+
+[volume]
+command=$I3BLOCKS_SCRIPT_DIR/volume
+label=VOL 
+interval=once
+signal=10
+
+[memory]
+command=$I3BLOCKS_SCRIPT_DIR/memory
+label=MEM 
+interval=5
+
+[load_average]
+command=$I3BLOCKS_SCRIPT_DIR/load_average
+interval=5
+
+[temperature]
+command=$I3BLOCKS_SCRIPT_DIR/temperature
+label=TEMP 
+interval=10
+
+[battery]
+command=$I3BLOCKS_SCRIPT_DIR/battery2
+markup=pango
+interval=5
+
+[time]
+command=date '+%d-%m-%Y %H:%M:%S'
+interval=1

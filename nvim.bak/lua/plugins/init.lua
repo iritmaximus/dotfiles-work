@@ -1,0 +1,8 @@
+require("plugins/colorscheme")
+require("plugins/treesitter")
+require("plugins/lsp-config")
+require("plugins/noconfig")
+require("plugins/telescope")
+require("plugins/null-ls")
+require("plugins/prettier")
+require("plugins/hardtime")

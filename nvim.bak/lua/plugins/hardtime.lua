@@ -1,0 +1,11 @@
+-- require("hardtime").setup({
+--     disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "oil" },
+--     disable_mouse = false,
+--     max_count = 5,
+--     enabled = false
+-- })
+
+-- Doesn't work...
+-- vim.keymap.set("n", "<Leader>he", vim.api.nvim_cmd({ cmd = 'Hardtime', args = { "enable"}}, { output = false }))
+-- vim.keymap.set("n", "<Leader>hd", vim.api.nvim_cmd({ cmd = 'Hardtime', args = { "disable"}}, { output = false }))
+-- vim.keymap.set("n", "<Leader>ht", vim.api.nvim_cmd({ cmd = 'Hardtime', args = { "toggle"}}, { output = false }))
