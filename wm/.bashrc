@@ -98,7 +98,6 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
 
-
 # autostart and such things
 gpgconf --launch gpg-agent
 
@@ -113,10 +112,6 @@ export PATH="$PATH:/home/martti/.cargo/bin"
 # https://github.com/swaywm/wlroots/issues/1877 second monitor not working
 WLR_DRM_NO_MODIFIERS=1
 
-# source /home/martti/.tmc-autocomplete.sh || true
-
-# export I3BLOCKS_SCRIPT_DIR="~/.config/i3blocks/scripts"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -127,10 +122,6 @@ export PATH="/home/$USER/.local/bin:$PATH"
 export PATH="$PATH:/home/koivaaro/.local/share/coursier/bin"
 # Doom emacs
 export PATH="$PATH:/home/koivaaro/.config/emacs/bin"
-
-# Enable clang by default :) nothing can go wrong :) (nvm, gcc-15 should be easier)
-# export CC=clang
-# export CXX=clang++
 
 # Fixes cubbli things
 umask 022
