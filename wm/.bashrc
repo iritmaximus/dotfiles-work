@@ -98,16 +98,12 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
 
-# autostart and such things
+# autostart gpg-agent
 gpgconf --launch gpg-agent
 
 # Self-added conf
-export PATH="$PATH:/sbin:/home/martti/.local/bin:/home/martti/.local/bin/statusbar:/usr/local/bin:/usr/local/crossdev/bin:/home/martti/.config/emacs/bin"
 export EMACS_SOCKET_NAME="/tmp/emacs$(id -u)/server"
 export EDITOR="hx"
-
-# rustup
-export PATH="$PATH:/home/martti/.cargo/bin"
 
 # https://github.com/swaywm/wlroots/issues/1877 second monitor not working
 WLR_DRM_NO_MODIFIERS=1
@@ -115,16 +111,17 @@ WLR_DRM_NO_MODIFIERS=1
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "$HOME/.cargo/env"
-export PATH="/home/$USER/.local/bin:$PATH"
-
-# Scala lsp
-export PATH="$PATH:/home/koivaaro/.local/share/coursier/bin"
-# Doom emacs
-export PATH="$PATH:/home/koivaaro/.config/emacs/bin"
 
 # Fixes cubbli things
 umask 022
 
-# opencode
-export PATH=/home/koivaaro/.opencode/bin:$PATH
+. "$HOME/.cargo/env"
+
+# Default good paths
+export PATH="$PATH:/sbin:/home/martti/.local/bin:/home/martti/.local/bin/statusbar:/usr/local/bin:/usr/local/crossdev/bin:/home/martti/.config/emacs/bin"
+
+export PATH="$PATH:/home/martti/.cargo/bin" # rustup
+export PATH="/home/$USER/.local/bin:$PATH" # .local/bin
+export PATH="$PATH:/home/koivaaro/.local/share/coursier/bin" # scala lsp
+export PATH="$PATH:/home/koivaaro/.config/emacs/bin" # Doom emacs
+export PATH="/home/koivaaro/.opencode/bin:$PATH" # opencode
