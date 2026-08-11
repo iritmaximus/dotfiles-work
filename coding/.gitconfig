@@ -1,8 +1,7 @@
 [user]
 	email = aaro@koivukangas.cc
 	name = Aaro Koivukangas
-	signingkey = /home/martti/.ssh/id_ed25519.pub
-	signinkey = 1EBCEEF2B53871F5
+	signingkey = 1EBCEEF2B53871F5
 [alias]
 	ci = commit
 	st = status
