@@ -1,0 +1,21 @@
+" set the custom leader key
+let mapleader = " "
+
+" keymaps
+inoremap jk <ESC>
+nnoremap <leader>s :source ~/.vim/vimrc<CR>
+
+" set the correct numbers
+set number
+set relativenumber
+
+" disable swapfiles
+set noswapfile
+
+" set pretty colors and ftplugins on
+syntax on
+filetype plugin on
+
+
+set expandtab " tabs are spaces
+set tabstop=4 " default tab is 4 spases

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/koivaaro/.config/i3blocks/scripts/memory'
+let g:netrw_dirhist_6='/home/koivaaro/.config/i3blocks/scripts'
+let g:netrw_dirhist_5='/home/koivaaro/.config/i3blocks'
+let g:netrw_dirhist_4='/home/koivaaro/.config'
+let g:netrw_dirhist_3='/home/koivaaro'
+let g:netrw_dirhist_2='/home/koivaaro/.config/sway'
+let g:netrw_dirhist_1='/home/koivaaro/.config/i3blocks'
+let g:netrw_dirhist_0='/home/koivaaro/.config'
+let g:netrw_dirhist_9='/home/koivaaro/.config/sway'
+let g:netrw_dirhist_8='/home/koivaaro/.config'
