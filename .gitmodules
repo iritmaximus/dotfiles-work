@@ -1,6 +1,6 @@
-[submodule "i3blocks/i3blocks-contrib"]
-	path = i3blocks/i3blocks-contrib
+[submodule "i3blocks-contrib"]
+	path = wm/.config/i3blocks/i3blocks-contrib
 	url = git@github.com:vivien/i3blocks-contrib.git
-[submodule "kitty/kitty-themes"]
-	path = kitty/kitty-themes
+[submodule "kitty-themes"]
+	path = wm/.config/kitty/kitty-themes
 	url = git@github.com:dexpota/kitty-themes.git
