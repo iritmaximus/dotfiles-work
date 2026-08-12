@@ -117,7 +117,13 @@ fi
 
 # Editor settings
 export EMACS_SOCKET_NAME="/tmp/emacs$(id -u)/server"
-export EDITOR="hx"
+# export EDITOR="hx"
+
+if which -s hx; then
+    export EDITOR="hx"
+    export HELIX_RUNTIME=$HOME/git/helix/runtime
+    export SUDO_EDITOR="hx --config $HOME/.config/helix/config.toml"
+fi
 
 # https://github.com/swaywm/wlroots/issues/1877 second monitor not working
 if [[ $XDG_CURRENT_DESKTOP == *"sway"* ]]; then
@@ -135,13 +141,13 @@ fi
 # By default add new entry to path before all entries before it
 export PATH="/sbin:$PATH" # /sbin because I guess
 export PATH="/usr/local/bin:$PATH" # .local/bin
-export PATH="~/.local/bin:$PATH" # .local/bin
-export PATH="~/.cargo/bin:$PATH" # rustup
-export PATH="~/go/bin:$PATH" # go installed packages
+export PATH="$HOME/.local/bin:$PATH" # .local/bin
+export PATH="$HOME/.cargo/bin:$PATH" # rustup
+export PATH="$HOME/go/bin:$PATH" # go installed packages
 
-export PATH="~/.local/bin/statusbar:$PATH" # statusbar commands
-export PATH="~/.local/share/coursier/bin:$PATH" # scala lsp
+export PATH="$HOME/.local/bin/statusbar:$PATH" # statusbar commands
+export PATH="$HOME/.local/share/coursier/bin:$PATH" # scala lsp
 export PATH="/usr/local/crossdev/bin:$PATH" # crossdev toolchain
 
-export PATH="~/.config/emacs/bin:$PATH" # Doom emacs
-export PATH="~/.opencode/bin:$PATH" # opencode
+export PATH="$HOME/.config/emacs/bin:$PATH" # Doom emacs
+export PATH="$HOME/.opencode/bin:$PATH" # opencode
