@@ -21,8 +21,8 @@ set $secondary_term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi --show run | xargs swaymsg exec --
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu wofi --show run | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
@@ -31,9 +31,6 @@ include /etc/sway/config-vars.d/*
 exec mako
 exec blueman-applet
 exec nm-applet
-#exec telegram-desktop
-#exec thunderbird-bin
-
 
 
 ### Looks
@@ -47,8 +44,6 @@ default_border pixel 2
 smart_gaps on
 gaps inner 5
 gaps outer 3
-
-
 
 for_window [class="org.telegram"] move workspace 1
 for_window [class="steam"] move workspace 5
