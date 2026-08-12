@@ -22,7 +22,7 @@ alias ,,="ls"
 alias ..="ls"
 
 # Debian only
-if [[ $XDG_CURRENT_DESKTOP == *"debian"* ]]; then
+if [[ -f /etc/debian_version ]]; then
 	alias bat="batcat"
 fi
 
