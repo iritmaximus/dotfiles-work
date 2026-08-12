@@ -1,7 +1,9 @@
+[include]
+	# Set commit signing here
+	path = ~/.gitconfig.local
 [user]
 	email = aaro@koivukangas.cc
 	name = Aaro Koivukangas
-	signingkey = 1EBCEEF2B53871F5
 [alias]
 	ci = commit
 	st = status
@@ -23,5 +25,3 @@
     conflictstyle = diff3
 [mergetool]
 	prompt = false
-[commit]
-	gpgsign = true
