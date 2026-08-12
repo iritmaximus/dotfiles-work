@@ -92,6 +92,18 @@ if ! shopt -oq posix; then
 fi
 
 
+# === CONFIG ===
+
+# Fixes cubbli things
+if [[ -d /etc/cubbli ]]; then
+    umask 022
+fi
+
+# autostart gpg-agent
+gpgconf --launch gpg-agent
+
+
+# === VARIABLES ===
 # wayland specific flags
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     # firefox
@@ -99,34 +111,37 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 fi
 
 # Set DOCKER_HOST if docker is running in rootless mode
-if (docker info) | grep rootless -q; then
+if which docker && docker info | grep rootless -q; then
     export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
 
-# autostart gpg-agent
-gpgconf --launch gpg-agent
-
-# Self-added conf
+# Editor settings
 export EMACS_SOCKET_NAME="/tmp/emacs$(id -u)/server"
 export EDITOR="hx"
 
 # https://github.com/swaywm/wlroots/issues/1877 second monitor not working
-WLR_DRM_NO_MODIFIERS=1
+if [[ $XDG_CURRENT_DESKTOP == *"sway"* ]]; then
+    WLR_DRM_NO_MODIFIERS=1
+fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Fixes cubbli things
-umask 022
+if [[ -d $HOME/.nvm ]]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 . "$HOME/.cargo/env"
 
-# Default good paths
-export PATH="$PATH:/sbin:~/.local/bin:~/.local/bin/statusbar:/usr/local/bin:/usr/local/crossdev/bin:~/.config/emacs/bin"
-
-export PATH="$PATH:~/.cargo/bin" # rustup
+# By default add new entry to path before all entries before it
+export PATH="/sbin:$PATH" # /sbin because I guess
+export PATH="/usr/local/bin:$PATH" # .local/bin
 export PATH="~/.local/bin:$PATH" # .local/bin
-export PATH="$PATH:~/.local/share/coursier/bin" # scala lsp
-export PATH="$PATH:~/.config/emacs/bin" # Doom emacs
+export PATH="~/.cargo/bin:$PATH" # rustup
+export PATH="~/go/bin:$PATH" # go installed packages
+
+export PATH="~/.local/bin/statusbar:$PATH" # statusbar commands
+export PATH="~/.local/share/coursier/bin:$PATH" # scala lsp
+export PATH="/usr/local/crossdev/bin:$PATH" # crossdev toolchain
+
+export PATH="~/.config/emacs/bin:$PATH" # Doom emacs
 export PATH="~/.opencode/bin:$PATH" # opencode
