@@ -111,7 +111,7 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 fi
 
 # Set DOCKER_HOST if docker is running in rootless mode
-if which docker && docker info | grep rootless -q; then
+if which -s docker && docker info | grep rootless -q; then
     export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
 
