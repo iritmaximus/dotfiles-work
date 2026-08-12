@@ -1,43 +1,28 @@
-# [language-server.typescript-language-server]
-# command = "tsc"
-# args = ["--lsp", "--stdio"]
+[language-server.typescript-language-server]
+command = "tsc"
+args = ["--lsp", "--stdio"]
 
-# [language-server.oxfmt]
-# command = "oxfmt"
-# args = ["--lsp"]
+[language-server.oxfmt]
+command = "oxfmt"
+args = ["--lsp"]
 
-# [language-server.typescript-language-server.config.typescript]
-# inlayHints.enumMemberValues.enabled = true
-# inlayHints.functionLikeReturnTypes.enabled = true
-# inlayHints.parameterTypes.enabled = true
-# inlayHints.parameterNames.enabled = "all"
-# inlayHints.propertyDeclarationTypes.enabled = true
-# inlayHints.variableTypes.enabled = true
 
-# [language-server.typescript-language-server.config.javascript]
-# inlayHints.enumMemberValues.enabled = true
-# inlayHints.functionLikeReturnTypes.enabled = true
-# inlayHints.parameterTypes.enabled = true
-# inlayHints.parameterNames.enabled = "all"
-# inlayHints.propertyDeclarationTypes.enabled = true
-# inlayHints.variableTypes.enabled = true
+[[language]]
+name = "typescript"
+language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+auto-format = true
 
-# [[language]]
-# name = "typescript"
-# language-servers= ["oxfmt", "typescript-language-server"]
-# auto-format = true
+[[language]]
+name = "tsx"
+language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+auto-format = true
 
-# [[language]]
-# name = "tsx"
-# language-servers= ["oxfmt", "typescript-language-server"]
-# auto-format = true
+[[language]]
+name = "javascript"
+language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+auto-format = true
 
-# [[language]]
-# name = "javascript"
-# language-servers= ["oxfmt", "typescript-language-server"]
-# auto-format = true
-
-# [[language]]
-# name = "jsx"
-# language-servers= ["oxfmt", "typescript-language-server"]
-# auto-format = true
+[[language]]
+name = "jsx"
+language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+auto-format = true
