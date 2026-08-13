@@ -6,23 +6,42 @@ args = ["--lsp", "--stdio"]
 command = "oxfmt"
 args = ["--lsp"]
 
+[language-server.oxlint]
+command = "oxlint"
+args = ["--lsp"]
 
 [[language]]
 name = "typescript"
-language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+language-servers = [
+  { name = "oxfmt", only-features = ["format"] },
+  { name = "oxlint", only-features = ["diagnostics"] },
+  "typescript-language-server"
+]
 auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+language-servers = [
+  { name = "oxfmt", only-features = ["format"] },
+  { name = "oxlint", only-features = ["diagnostics"] },
+  "typescript-language-server"
+]
 auto-format = true
 
 [[language]]
 name = "javascript"
-language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+language-servers = [
+  { name = "oxfmt", only-features = ["format"] },
+  { name = "oxlint", only-features = ["diagnostics"] },
+  "typescript-language-server"
+]
 auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers= [{ name = "oxfmt", only-features = [ "format" ] }, "typescript-language-server"]
+language-servers = [
+  { name = "oxfmt", only-features = ["format"] },
+  { name = "oxlint", only-features = ["diagnostics"] },
+  "typescript-language-server"
+]
 auto-format = true
