@@ -1,6 +1,6 @@
 # Alacritty configuration written in TOML
 
-# General
+[general]
 live_config_reload = true
 ipc_socket = true
 
