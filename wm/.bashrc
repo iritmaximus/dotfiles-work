@@ -111,15 +111,14 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 fi
 
 # Set DOCKER_HOST if docker is running in rootless mode
-if which -s docker && docker info | grep rootless -q; then
+if which docker > /dev/null 2>&1 && docker info | grep rootless -q; then
     export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
 
 # Editor settings
 export EMACS_SOCKET_NAME="/tmp/emacs$(id -u)/server"
-# export EDITOR="hx"
 
-if which -s hx; then
+if which hx > /dev/null 2>&1; then
     export EDITOR="hx"
     export HELIX_RUNTIME=$HOME/git/helix/runtime
     export SUDO_EDITOR="hx --config $HOME/.config/helix/config.toml"
