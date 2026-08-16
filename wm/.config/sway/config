@@ -204,6 +204,9 @@ input "1133:49271:Logitech_USB_Optical_Mouse" {
 # Custom bindings
 #
 
+# Open nautilus
+bindsym $mod+n exec nautilus
+
 # capture all screens to clipboard
 bindsym Print exec grim - | wl-copy
 
