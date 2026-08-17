@@ -36,7 +36,11 @@ character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
 [keys.normal]
-
 # Vim binds
 C-e = "scroll_down"
 C-y = "scroll_up"
+
+# Stolen from Joonas
+X = "extend_line_above"
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
