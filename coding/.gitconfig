@@ -1,27 +1,46 @@
 [include]
 	# Set commit signing here
 	path = ~/.gitconfig.local
+
 [user]
 	email = aaro@koivukangas.cc
 	name = Aaro Koivukangas
+
 [alias]
 	ci = commit
 	st = status
 	co = checkout
 	br = branch
+
 [init]
 	defaultBranch = main
+
+
+[core]
+	pager = delta
+
 [pager]
 	branch = false
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    # dark = true      # or light = true, or omit for auto-detection
+
 [pull]
 	rebase = true
+
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
 [merge]
-	tool = nvimdiff
-    conflictstyle = diff3
+	# tool = nvimdiff
+    conflictstyle = zdiff3
+
 [mergetool]
 	prompt = false
