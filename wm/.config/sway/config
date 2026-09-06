@@ -140,7 +140,7 @@ bindsym $mod+Control+Shift+$up move workspace to output up
 #   }
 
 input "type:touchpad" {
-    natural_scroll enabled
+    natural_scroll disabled
 }
 
 input "type:keyboard" {
