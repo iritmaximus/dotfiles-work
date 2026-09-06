@@ -138,7 +138,8 @@ bindsym $mod+Control+Shift+$up move workspace to output up
 #       natural_scroll enabled
 #       middle_emulation enabled
 #   }
-input 1267:12809:ELAN067D:00_04F3:3209_Touchpad {
+
+input "type:touchpad" {
     natural_scroll enabled
 }
 
