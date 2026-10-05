@@ -4,9 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-
-
-### Variables
+### === Variables ===
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -21,19 +19,19 @@ set $secondary_term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# set $menu wofi --show run | xargs swaymsg exec --
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi --show run | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
 
-### Autostart
+### === Autostart ===
 exec mako
 exec blueman-applet
 exec nm-applet
 
 
-### Looks
+### === Looks ===
 
 # font
 font terminus 10
@@ -50,7 +48,7 @@ for_window [class="steam"] move workspace 5
 for_window [class="thunderbird"] move workspace 10
 
 
-### Output configuration
+### === Output configuration ===
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg $HOME/.config/wallpaper.jpg fill
@@ -61,14 +59,7 @@ set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 
-# these need to be changed at least when upgrading kernels
-# maybe also when restarting
-#
-#
-# output $primary mode 2560x1440@89.909Hz
-
-# for multiple monitors...
-set $secondary "InfoVision Optoelectronics (Kunshan) Co.,Ltd China 0x8C4D Unknown"
+set $secondary $laptop
 
 # TOSKA (oma paikka)
 set $primary "Lenovo Group Limited LEN P32p-20 VNA5YX24"
@@ -80,18 +71,6 @@ output $secondary mode 1920x1080@60.010Hz pos 950 2160
 # output $primary mode 2560x1440@119.998Hz pos 0 0
 # output $secondary mode 1920x1080@60.010Hz pos 320 1440
 
-
-# Aleksandria 3.krs
-# set $primary "Lenovo Group Limited T27h-30 V5VZX516"
-# Aleksandria 2. krs oven lähellä
-# set $primary "Lenovo Group Limited T27QD-40 VNAC1AFL"
-# Aleksandria 2. krs keskellä
-# set $primary "Lenovo Group Limited T27QD-40 VNAC0DLT"
-#
-# output $primary mode 2560x1440@119.998Hz pos 0 0
-# output $secondary mode 1920x1080@60.010Hz pos 320 1440
-
-# output $secondary mode 1920x1080@119.998Hz pos 950 2160
 
 workspace 1 output $primary
 workspace 2 output $primary
@@ -111,42 +90,15 @@ bindsym $mod+Control+Shift+$down move workspace to output down
 bindsym $mod+Control+Shift+$up move workspace to output up
 
 
-
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-
 input "type:touchpad" {
     natural_scroll disabled
 }
 
 input "type:keyboard" {
-    xkb_layout arkkudvorak,us
-    xkb_variant ,colemak,
-    xkb_options grp:win_space_toggle,caps:swapescape
+    xkb_layout arkkudvorak,fi
+    xkb_variant ,
+    xkb_options grp:win_space_toggle,caps:escape
+    # xkb_options grp:win_space_toggle,caps:swapescape
     # xkb_options grp:win_space_toggle,caps:ctrl_modifier
 }
 
@@ -168,38 +120,8 @@ input "1133:49271:Logitech_USB_Optical_Mouse" {
     accel_profile "flat"
 }
 
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
-
-
-### Key bindings
-
-#
-# Basics:
-#
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift++Return exec $secondary_term
-
-    # Kill focused window
-    bindsym $mod+Shift+q kill
-
-    # Start your launcher
-    bindsym $mod+d exec $menu
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
-
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+### === Key bindings ===
 
 #
 # Custom bindings
@@ -232,6 +154,31 @@ bindsym $mod+XF86MonBrightnessUp exec brightnessctl set 100%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym $mod+XF86MonBrightnessDown exec brightnessctl set 1
 
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+    bindsym $mod+Shift++Return exec $secondary_term
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 #
 # Moving around:
@@ -387,3 +334,4 @@ bar {
 }
 
 include /etc/sway/config.d/*
+include ./config.local
