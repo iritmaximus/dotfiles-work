@@ -45,3 +45,36 @@ language-servers = [
   "typescript-language-server"
 ]
 auto-format = true
+
+
+[[language]]
+name = "latex"
+
+[language-server.texlab.config.texlab.forwardSearch]
+executable = "zathura"
+args = [ "--synctex-forward", "%l:%c:%f", "%p" ]
+
+[language-server.texlab.config.texlab.build]
+# auxDirectory = "build"
+# logDirectory = "build"
+# pdfDirectory = "build"
+
+forwardSearchAfter = true
+onSave = true
+
+executable = "tectonic"
+args = [
+  "-X",
+  "compile",
+  "-Z",
+  "search-path=/usr/share/texlive/texmf-dist/tex/latex/biblatex", # output of `dirname "$(kpsewhich biblatex.sty)"`
+  "--synctex",
+  "--keep-logs",
+  "--keep-intermediates",
+  # "--outdir=build",
+  "%f",
+]
+
+[language-server.texlab.config.texlab.chktex]
+onOpenAndSave = true
+onEdit = true
