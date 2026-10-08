@@ -150,3 +150,7 @@ export PATH="/usr/local/crossdev/bin:$PATH" # crossdev toolchain
 
 export PATH="$HOME/.config/emacs/bin:$PATH" # Doom emacs
 export PATH="$HOME/.opencode/bin:$PATH" # opencode
+
+# >>> oodikone ok.sh >>>
+ok() { "/home/martti/git/oodikone/ok.sh" "$@"; }
+# <<< oodikone ok.sh <<<
