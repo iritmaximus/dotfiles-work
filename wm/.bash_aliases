@@ -50,3 +50,5 @@ alias k="kubectl"
 # TOSKA oodikone hommeleita
 alias rl="npm run docker:down && npm run both:real"
 alias cdo="cd ~/git/oodikone"
+
+alias cdk="cd ~/Sync/docs/kandi"
