@@ -1,4 +1,4 @@
 .cache
 node_modules
-coding/.config/opencode/opencode-notifier-state.json
-coding/.gitconfig.local
+.config/opencode/opencode-notifier-state.json
+.gitconfig.local
