@@ -16,10 +16,10 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # dvorak aliases
-alias ,.="ls -l"
-alias .,="ls -l"
-alias ,,="ls"
-alias ..="ls"
+alias ,.="ls -l -h"
+alias .,="ls -l -h"
+alias ,,="ls -h"
+alias ..="ls -h"
 
 # Debian only
 if [[ -f /etc/debian_version ]]; then
