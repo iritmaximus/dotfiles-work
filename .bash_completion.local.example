@@ -1,0 +1,14 @@
+# ~/.bash_completion.local: machine-specific bash completions, sourced by ~/.bashrc.
+# Copy this file to ~/.bash_completion.local and edit the list of tools.
+
+# Some distro packages (e.g. Fedora) don't ship completions for tools that can
+# generate their own, so generate them once into the user completion dir.
+# Delete a generated file to regenerate it, e.g. after upgrading the tool.
+_user_comp_dir="${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions"
+for _cmd in tailscale; do
+  if command -v "$_cmd" >/dev/null && [ ! -s "$_user_comp_dir/$_cmd" ]; then
+    mkdir -p "$_user_comp_dir"
+    "$_cmd" completion bash > "$_user_comp_dir/$_cmd" 2>/dev/null || rm -f "$_user_comp_dir/$_cmd"
+  fi
+done
+unset _cmd _user_comp_dir

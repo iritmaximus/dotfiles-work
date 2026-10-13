@@ -91,6 +91,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Machine-specific completions, see ~/dotfiles-work/.bash_completion.local.example
+if [ -f ~/.bash_completion.local ]; then
+    . ~/.bash_completion.local
+fi
+
 
 # === CONFIG ===
 
