@@ -39,9 +39,10 @@ font terminus 10
 # disables title bar but not borders
 default_border pixel 2
 
-smart_gaps on
-gaps inner 5
-gaps outer 3
+# Uncomment to enable gaps
+# smart_gaps on
+# gaps inner 5
+# gaps outer 3
 
 for_window [class="org.telegram"] move workspace 1
 for_window [class="steam"] move workspace 5
