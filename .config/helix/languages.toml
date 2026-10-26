@@ -51,6 +51,16 @@ auto-format = true
 name = "latex"
 
 soft-wrap.enable = true
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'`' = '`'
+'$' = '$'
+# '<' = '>' # Challenging doing math :)
+
 
 [language-server.texlab.config.texlab.forwardSearch]
 executable = "zathura"
